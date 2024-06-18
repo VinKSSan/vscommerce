@@ -8,6 +8,7 @@ public class CustonError {
     private String error;
     private  String path;
 
+
     public CustonError(Instant timestamp, Integer status, String error, String path) {
         this.timestamp = timestamp;
         this.status = status;
