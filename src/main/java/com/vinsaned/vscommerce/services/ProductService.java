@@ -38,6 +38,11 @@ public class ProductService {
         Page<Product> products = repository.findAll(pageable);
         return  products.map(p -> new ProductDTO(p));
     }
+    @Transactional(readOnly = true)
+    public Page<ProductDTO> findByName(String name, Pageable pageable){
+        Page<Product> products = repository.scByName(name, pageable);
+        return  products.map(ProductDTO::new);
+    }
 
     @Transactional
     public ProductDTO insert(ProductDTO dto){
@@ -69,7 +74,7 @@ public class ProductService {
             repository.deleteById(id);
         }
         catch (EmptyResultDataAccessException e){
-            throw new ResourceNotFoundException("não foi possivel deletar, recurso não encontrdo");
+            throw new ResourceNotFoundException("não foi possivel deletar, recurso não encontrado");
         }
         catch (DataIntegrityViolationException e){
             throw new DataBaseException("Falha de integridade");

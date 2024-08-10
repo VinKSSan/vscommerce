@@ -26,9 +26,16 @@ public class ProductController {
        return ResponseEntity.ok(dto);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<Page<ProductDTO>>  findAll(Pageable pageable) {
         Page<ProductDTO> dto = service.findAll(pageable);
+        return ResponseEntity.ok(dto);
+    }
+    @GetMapping
+    public ResponseEntity<Page<ProductDTO>>  findByName(
+            @RequestParam(name="name", defaultValue="") String name,
+            Pageable pageable) {
+        Page<ProductDTO> dto = service.findByName(name, pageable);
         return ResponseEntity.ok(dto);
     }
 
@@ -52,6 +59,5 @@ public class ProductController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
-
 
 }
