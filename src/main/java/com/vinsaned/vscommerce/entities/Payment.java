@@ -1,6 +1,6 @@
 package com.vinsaned.vscommerce.entities;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.time.Instant;
 @Entity

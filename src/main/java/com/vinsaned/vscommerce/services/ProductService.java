@@ -5,7 +5,7 @@ import com.vinsaned.vscommerce.entities.Product;
 import com.vinsaned.vscommerce.repositories.ProductRepository;
 import com.vinsaned.vscommerce.services.exceptions.DataBaseException;
 import com.vinsaned.vscommerce.services.exceptions.ResourceNotFoundException;
-import jakarta.persistence.EntityNotFoundException;
+import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;

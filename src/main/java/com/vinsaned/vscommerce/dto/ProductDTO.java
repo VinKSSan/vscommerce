@@ -1,7 +1,7 @@
 package com.vinsaned.vscommerce.dto;
 
 import com.vinsaned.vscommerce.entities.Product;
-import jakarta.validation.constraints.*;
+import javax.validation.constraints.*;
 
 public class ProductDTO {
     private Long id;

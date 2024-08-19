@@ -2,7 +2,7 @@ package com.vinsaned.vscommerce.controllers;
 
 import com.vinsaned.vscommerce.dto.ProductDTO;
 import com.vinsaned.vscommerce.services.ProductService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

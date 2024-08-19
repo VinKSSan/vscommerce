@@ -1,6 +1,6 @@
 package com.vinsaned.vscommerce.entities;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 
 @Entity
