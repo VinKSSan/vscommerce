@@ -1,6 +1,9 @@
 package com.vinsaned.vscommerce.services;
 
+import com.vinsaned.vscommerce.dto.CategoryDTO;
 import com.vinsaned.vscommerce.dto.ProductDTO;
+import com.vinsaned.vscommerce.dto.ProductMinDTO;
+import com.vinsaned.vscommerce.entities.Category;
 import com.vinsaned.vscommerce.entities.Product;
 import com.vinsaned.vscommerce.repositories.ProductRepository;
 import com.vinsaned.vscommerce.services.exceptions.DataBaseException;
@@ -34,14 +37,14 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public Page<ProductDTO> findAll(Pageable pageable){
+    public Page<ProductMinDTO> findAll(Pageable pageable){
         Page<Product> products = repository.findAll(pageable);
-        return  products.map(p -> new ProductDTO(p));
+        return  products.map(p -> new ProductMinDTO(p));
     }
     @Transactional(readOnly = true)
-    public Page<ProductDTO> findByName(String name, Pageable pageable){
+    public Page<ProductMinDTO> findByName(String name, Pageable pageable){
         Page<Product> products = repository.scByName(name, pageable);
-        return  products.map(ProductDTO::new);
+        return  products.map(ProductMinDTO::new);
     }
 
     @Transactional
@@ -86,5 +89,11 @@ public class ProductService {
         entity.setDescription(dto.getDescription());
         entity.setPrice(dto.getPrice());
         entity.setImgUrl(dto.getImgUrl());
+        entity.getCategories().clear();
+        for(CategoryDTO catdto: dto.getCategories()){
+            Category cat = new Category();
+            cat.setId(catdto.getId());
+            entity.getCategories().add(cat);
+        }
     }
 }
