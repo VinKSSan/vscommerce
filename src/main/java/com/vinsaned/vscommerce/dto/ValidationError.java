@@ -15,6 +15,7 @@ public class ValidationError extends CustonError{
         return errors;
     }
     public  void  addError(String fildName, String message){
+        errors.removeIf(e->e.getFieldName().equals(fildName));
         errors.add(new FieldMessage(fildName, message));
     }
 
