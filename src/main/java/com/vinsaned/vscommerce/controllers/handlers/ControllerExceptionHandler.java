@@ -3,6 +3,7 @@ package com.vinsaned.vscommerce.controllers.handlers;
 import  com.vinsaned.vscommerce.dto.CustonError;
 import com.vinsaned.vscommerce.dto.ValidationError;
 import com.vinsaned.vscommerce.services.exceptions.DataBaseException;
+import com.vinsaned.vscommerce.services.exceptions.ForBidenException;
 import com.vinsaned.vscommerce.services.exceptions.ResourceNotFoundException;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -52,6 +53,18 @@ public class ControllerExceptionHandler {
         for(FieldError f : e.getBindingResult().getFieldErrors()){
             err.addError(f.getField(), f.getDefaultMessage());
         }
+        return ResponseEntity.status(status).body(err);
+    }
+
+    @ExceptionHandler(ForBidenException.class)
+    public ResponseEntity<CustonError> forBiden(ForBidenException e, HttpServletRequest request) {
+        HttpStatus status = HttpStatus.FORBIDDEN;
+        CustonError err = new CustonError(
+                Instant.now(),
+                status.value(),
+                e.getMessage(),
+                request.getRequestURI()
+        );
         return ResponseEntity.status(status).body(err);
     }
 }

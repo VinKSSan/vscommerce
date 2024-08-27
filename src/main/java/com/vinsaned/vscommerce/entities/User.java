@@ -43,7 +43,7 @@ public class User implements UserDetails {
     }
 
 //gets
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -102,7 +102,14 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-
+    public Boolean hasHole(String roleName){
+        for(Role role : roles){
+            if(role.getAuthority().equals(roleName)){
+                return true;
+            }
+        }
+        return false;
+    }
 //User details methods
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
