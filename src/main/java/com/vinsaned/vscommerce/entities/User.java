@@ -19,6 +19,8 @@ public class User implements UserDetails {
     private String phone;
     private LocalDate birthDate;
     private String password;
+    @Column(name="uri_photo")
+    private String uriPhoto;
 
     @OneToMany(mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
@@ -33,13 +35,14 @@ public class User implements UserDetails {
 //constructors
     public User(){}
 
-    public User(long id, String name, String email, String phone, LocalDate birthDate, String password) {
+    public User(long id, String name, String email, String phone, LocalDate birthDate, String password, String uriPhoto) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.birthDate = birthDate;
         this.password = password;
+        this.uriPhoto = uriPhoto;
     }
 
 //gets
@@ -141,4 +144,11 @@ public class User implements UserDetails {
         return true;
     }
 
+    public String getUriPhoto() {
+        return uriPhoto;
+    }
+
+    public void setUriPhoto(String uriPhoto) {
+        this.uriPhoto = uriPhoto;
+    }
 }

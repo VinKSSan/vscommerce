@@ -55,8 +55,8 @@ INSERT INTO tb_product_category (product_id, category_id) VALUES (23, 3);
 INSERT INTO tb_product_category (product_id, category_id) VALUES (24, 3);
 INSERT INTO tb_product_category (product_id, category_id) VALUES (25, 3);
 
-INSERT INTO tb_user (name, email, phone, password, birth_date) VALUES ('Maria Brown', 'maria@gmail.com', '988888888', '$2a$10$oaTJtYOSABwIEja5b0MpIurwIli5Zv.e4.j9.gHrbaFytshzvqDiu', '2001-07-25');
-INSERT INTO tb_user (name, email, phone, password, birth_date) VALUES ('Alex Green', 'alex@gmail.com', '977777777', '$2a$10$oaTJtYOSABwIEja5b0MpIurwIli5Zv.e4.j9.gHrbaFytshzvqDiu', '1987-12-13');
+INSERT INTO tb_user (name, email, phone, password, birth_date, uri_photo) VALUES ('Maria Brown', 'maria@gmail.com', '988888888', '$2a$10$oaTJtYOSABwIEja5b0MpIurwIli5Zv.e4.j9.gHrbaFytshzvqDiu', '2001-07-25', "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.T9jIsRXGspq8DY4hbUWlxAHaEK%26pid%3DApi&f=1&ipt=aae3951b568beb9af77c17319e3caa6d062223c4ea1c1c45a46576e354648006&ipo=images");
+INSERT INTO tb_user (name, email, phone, password, birth_date, uri_photo) VALUES ('Alex Green', 'alex@gmail.com', '977777777', '$2a$10$oaTJtYOSABwIEja5b0MpIurwIli5Zv.e4.j9.gHrbaFytshzvqDiu', '1987-12-13',"https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages4.fanpop.com%2Fimage%2Fphotos%2F24400000%2FAlex-Wallpaper-alex-the-lion-24491239-1680-1050.jpg&f=1&nofb=1&ipt=ec946b80948f47938473e681d24ca172bdf63ba30263acd08dc4ae4f8adb27f5&ipo=images");
 
 INSERT INTO tb_role (authority) VALUES ('ROLE_CLIENT');
 INSERT INTO tb_role (authority) VALUES ('ROLE_ADMIN');
